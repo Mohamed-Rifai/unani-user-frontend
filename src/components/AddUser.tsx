@@ -71,7 +71,7 @@ const handleSubmit =(e:React.FormEvent<HTMLFormElement>) => {
             type="text"
             fullWidth
             variant="standard"
-            ref={nameRef}
+            inputRef={nameRef}
           />
           <TextField
             margin="dense"
@@ -80,7 +80,7 @@ const handleSubmit =(e:React.FormEvent<HTMLFormElement>) => {
             type="text"
             fullWidth
             variant="standard"
-            ref={fNameRef}
+            inputRef={fNameRef}
             
           />
           <TextField
@@ -90,7 +90,7 @@ const handleSubmit =(e:React.FormEvent<HTMLFormElement>) => {
             type="text"
             fullWidth
             variant="standard"
-            ref={mNameRef}
+            inputRef={mNameRef}
           />
           <TextField
             margin="dense"
@@ -99,7 +99,7 @@ const handleSubmit =(e:React.FormEvent<HTMLFormElement>) => {
             type="text"
             fullWidth
             variant="standard"
-            ref={surNameRef}
+            inputRef={surNameRef}
           />
           <TextField
             margin="dense"
@@ -111,7 +111,7 @@ const handleSubmit =(e:React.FormEvent<HTMLFormElement>) => {
               shrink: true,
             }}
             variant="standard"
-            ref={dateRef}
+            inputRef={dateRef}
           />
           <TextField
             margin="dense"
@@ -120,7 +120,7 @@ const handleSubmit =(e:React.FormEvent<HTMLFormElement>) => {
             type="text"
             fullWidth
             variant="standard"
-            ref={mahalluRef}
+            inputRef={mahalluRef}
           />
           <TextField
             margin="dense"
@@ -129,7 +129,7 @@ const handleSubmit =(e:React.FormEvent<HTMLFormElement>) => {
             type="text"
             fullWidth
             variant="standard"
-            ref={placeRef}
+            inputRef={placeRef}
           />
           <TextField
             margin="dense"
@@ -138,7 +138,7 @@ const handleSubmit =(e:React.FormEvent<HTMLFormElement>) => {
             type="text"
             fullWidth
             variant="standard"
-            ref={districtRef}
+            inputRef={districtRef}
           />
           <TextField
             margin="dense"
@@ -147,7 +147,7 @@ const handleSubmit =(e:React.FormEvent<HTMLFormElement>) => {
             type="text"
             fullWidth
             variant="standard"
-            ref={stateRef}
+            inputRef={stateRef}
           />
           <TextField
             margin="dense"
@@ -156,7 +156,7 @@ const handleSubmit =(e:React.FormEvent<HTMLFormElement>) => {
             type="text"
             fullWidth
             variant="standard"
-            ref={phoneRef}
+            inputRef={phoneRef}
           />
           <TextField
             margin="dense"
@@ -165,7 +165,7 @@ const handleSubmit =(e:React.FormEvent<HTMLFormElement>) => {
             type="text"
             fullWidth
             variant="standard"
-            ref={probRef}
+            inputRef={probRef}
           />
           <TextField
             margin="dense"
@@ -174,7 +174,7 @@ const handleSubmit =(e:React.FormEvent<HTMLFormElement>) => {
             type="text"
             fullWidth
             variant="standard"
-            ref={soluRef}
+            inputRef={soluRef}
           />
           <TextField
             margin="dense"
@@ -183,7 +183,7 @@ const handleSubmit =(e:React.FormEvent<HTMLFormElement>) => {
             type="text"
             fullWidth
             variant="standard"
-            ref={descriptionRef}
+            inputRef={descriptionRef}
           />
         </DialogContent>
         <DialogActions>
