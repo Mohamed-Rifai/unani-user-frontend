@@ -1,6 +1,6 @@
-import React,{ useState } from "react";
+import React,{ useEffect, useState } from "react";
 import {useNavigate} from 'react-router-dom'
-import { LockOutlined } from "@mui/icons-material";
+import { LockOutlined, Try } from "@mui/icons-material";
 import {
   Container,
   CssBaseline,
@@ -13,6 +13,8 @@ import {
 } from "@mui/material";
 
 import { Link } from "react-router-dom";
+import axios  from "../axios";
+import { toast } from "react-toastify";
     
 
 
@@ -23,14 +25,53 @@ const Login: React.FC = () => {
     const navigate = useNavigate()
 
 
+    useEffect(()=> {
+
+      if(localStorage.getItem('UserToken')){
+
+        navigate('/')
+      }
+    })
+
+
     const handleSubmit =async (e:React.FormEvent<HTMLFormElement>) =>{
         e.preventDefault()
-       console.log('helloo');
-       navigate('/')
-       
-        
-        
+
+try {
+  
+  const response = await axios.post('user/login',{email,password})
+   const token = response.data.token
+
+   //store to localStorage
+   localStorage.setItem('UserToken',token)
+   
+  
+  navigate('/')
+
+
+} catch (error:any) {
+
+  try{
+      const errorData = (error.response?.data || {}) as {message:string} 
+
+      console.error('Error response data:', errorData);
+      toast.error(JSON.stringify(errorData) || 'something went wrong')
+    }catch{
+
+      console.error('Unexpected error structure:', error);
+      toast.error('An unexpected error occurred.');
+
     }
+
+     
+ 
+ 
+
+      
+       
+}     
+        
+}  
   return (
     <>
     <Container maxWidth="xs">

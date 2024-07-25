@@ -3,11 +3,14 @@ import {Route,Routes} from 'react-router-dom'
 import Home from './pages/Home'
 import Login from './pages/Login';
 import UserDetails from './pages/UserDetails';
+import 'react-toastify/dist/ReactToastify.css';
+import {ToastContainer} from 'react-toastify'
+
 // import EditDetails from './pages/EditDetails';
 function App() {
   return (
-   <>
-
+   <>     
+ <ToastContainer/>
  <Routes>
  <Route path='/' element={<Home/>}/>
  <Route path='/login' element={<Login/>}/>

@@ -41,7 +41,7 @@ const user = {
     district: 'Manhattan',
     state: 'New York',
     phone: '123-456-7890',
-    problem: 'Some problem description',
+    problem: 'Some problem description Some problem descriptionSome problem description Some problem descriptionSome problem descriptionSome problem description',
     solutions: 'Some solutions description dfgdsfagf egerfgefrgr rtreyt ytertert tertreh rtreyy rtyertyt yeyet',
     description: 'Detailed description about the user use rifai shad i shakir fasi jsaj .'
   };
@@ -73,7 +73,7 @@ const user = {
         </Grid>
         <Divider style={{width:'100%'}} />
         <Grid item xs={12} sm={6}>
-          <Typography variant="body2">Date</Typography>
+          <Typography variant="body2">Date of birth</Typography>
           <Typography variant="subtitle1" sx={{ fontWeight: 'bold', color: 'black' }}>{user.dob}</Typography>
         </Grid>
         <Divider style={{width:'100%'}} />
