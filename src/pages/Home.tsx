@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Grid, Card, CardContent, Typography, CardActions, Button,TextField,IconButton ,Tooltip} from '@mui/material';
 import {Add,Search} from '@mui/icons-material'
 import { Link } from 'react-router-dom';
 import AddUser from '../components/AddUser';
+import axios from '../axios'
 
 
 
@@ -15,14 +16,37 @@ const users = [
 
 ];
 
+interface Patient {
+  _id:number;
+  name:string;
+  place:string;
+}
+
 const HomePage: React.FC = () => {
 
+
   const [open, setOpen] = useState(false);
-  const [searchTerm,setSearchTerm] = useState('')
+  const [searchTerm,setSearchTerm] = useState('');
+  const [patients,setPatients] = useState<Patient[]>([]);
+
+  useEffect(()=>{
+
+    axios.get('/patient/show-patients').then((res)=> {
+      console.log(res.data);
+      setPatients(res.data) 
+
+
+      
+    })
+  },[])
+
+ 
 
 
 const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   setSearchTerm(e.target.value);
+  console.log(patients);
+  
 };
 
 const handleAddUserClick = () => {
@@ -36,9 +60,20 @@ const handleClose = () => {
 
 
 
-const filteredUsers = users.filter((user) =>
-  user.name.toLowerCase().includes(searchTerm.toLowerCase())
+const filteredUsers = patients.filter((user) =>
+
+
+
+  user.name.toLowerCase().includes(searchTerm.toLowerCase()),
+
+ 
+
+
+  
 );
+
+console.log(filteredUsers);
+
 
   return (
 
@@ -59,7 +94,7 @@ const filteredUsers = users.filter((user) =>
           />
         </Grid>
 
-        <Grid item>
+        <Grid item >
         <Tooltip title="Add New Patient">
           <IconButton color="primary" onClick={handleAddUserClick} >
             <Add  />
@@ -71,13 +106,13 @@ const filteredUsers = users.filter((user) =>
 
 
         </Grid>
-      <Grid container spacing={2} sx={{ mt: 2 }}>
+      <Grid container spacing={2} sx={{ mt: 2 }} >
         {filteredUsers.map((user) => (
-          <Grid item key={user.id} xs={12} sm={6} md={4}>
+          <Grid item key={user._id} xs={12} sm={6} md={4}>
 
 
 
-<Link to={"/user-details"} style={{ textDecoration: 'none' }}> 
+<Link to={`/user-details/${user._id}`} style={{ textDecoration: 'none' }}> 
       <Card sx={{ padding: 2, cursor: 'pointer' }}>
         <CardContent sx={{ textAlign: 'center', padding: 1 }}>
           <Typography variant="subtitle1" sx={{ fontWeight: 'bold', color: 'black' }}>

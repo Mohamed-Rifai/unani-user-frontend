@@ -1,5 +1,7 @@
 import React,{useRef} from 'react'
 import {Dialog,DialogTitle,TextField,DialogContent,DialogActions,Button} from '@mui/material'
+import axios from '../axios'
+import { toast } from 'react-toastify'
 
 
 
@@ -28,7 +30,7 @@ const AddUser:React.FC<AddUserProps> =  ({open,onClose}) => {
 
 
 
-const handleSubmit =(e:React.FormEvent<HTMLFormElement>) => {
+const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
 
@@ -51,8 +53,32 @@ const handleSubmit =(e:React.FormEvent<HTMLFormElement>) => {
     
     }
 
-    console.log(formData);
-    onClose()
+    try {
+
+   const response =await axios.post('/patient/add-patient',formData)
+
+
+   const message = response.data?.message
+
+
+   toast.success(message)
+   
+
+
+    
+
+   onClose()
+
+    } catch (err) {
+      
+console.log(err);
+
+    }
+    
+   
+    
+    
+    
     
 
 }
@@ -60,7 +86,7 @@ const handleSubmit =(e:React.FormEvent<HTMLFormElement>) => {
   return (
     <>
        <Dialog open={open} onClose={onClose}>
-        <DialogTitle>Add New Pasiant</DialogTitle>
+        <DialogTitle>Add New Patiant</DialogTitle>
         <form onSubmit={handleSubmit}>
         <DialogContent>
           <TextField
@@ -71,6 +97,7 @@ const handleSubmit =(e:React.FormEvent<HTMLFormElement>) => {
             type="text"
             fullWidth
             variant="standard"
+            required
             inputRef={nameRef}
           />
           <TextField
@@ -80,6 +107,7 @@ const handleSubmit =(e:React.FormEvent<HTMLFormElement>) => {
             type="text"
             fullWidth
             variant="standard"
+            required
             inputRef={fNameRef}
             
           />

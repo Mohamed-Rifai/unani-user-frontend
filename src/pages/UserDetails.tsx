@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Container, Typography, Grid, Paper, Box,Divider,IconButton } from '@mui/material';
 import { Add, Edit } from '@mui/icons-material';
 import EditDetails from '../components/FormUserEdit'
+import axios from '../axios'
 
 
 const user = [
@@ -12,14 +13,31 @@ const user = [
 ];
 
 const UserDetails: React.FC = () => {
-//   const { id } = useParams<{ id: string }>();
+
+   const {id}= useParams<{ id: string }>();
+
+   const [patient,setPatient] = useState('')
+   const [open,setOpen] =useState(false)
+   
+   
 // //   const user = users.find((user) => user.id === parseInt(id));
 
-//   if (!user) {
-//     return <Typography variant="h6">User not found</Typography>;
-//   }
+useEffect(()=> {
+  
+  axios.get(`/patient/single-patient/${id}`)
+  .then((res)=> {
 
-    const [open,setOpen] =useState(false)
+  console.log(res.data);
+  
+
+  })
+  .catch((err)=> {
+
+    console.log(err);
+    
+  })
+},[id])
+    
 
 const handleOpen = () => {
     setOpen(true);
