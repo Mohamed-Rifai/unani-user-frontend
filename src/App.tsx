@@ -5,7 +5,7 @@ import Login from './pages/Login';
 import UserDetails from './pages/UserDetails';
 import 'react-toastify/dist/ReactToastify.css';
 import {ToastContainer} from 'react-toastify'
-import Navbar from './components/Navbar';
+// import Navbar from './components/Navbar';
 
 // import EditDetails from './pages/EditDetails';
 function App() {

@@ -1,17 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Container, Typography, Grid, Paper, Box,Divider,IconButton } from '@mui/material';
-import { Add, Edit } from '@mui/icons-material';
+import { Container, Typography, Grid, Paper,Divider,IconButton } from '@mui/material';
+import { Edit } from '@mui/icons-material';
 import EditDetails from '../components/FormUserEdit'
 import axios from '../axios'
-import Navbar from '../components/Navbar';
+// import Navbar from '../components/Navbar';
 
 
-const user = [
-  { id: 1, name: 'John Doe', place: 'New York', gender: 'male', details: 'More details about John Doe.' },
-  { id: 2, name: 'Jane Smith', place: 'Los Angeles', gender: 'female', details: 'More details about Jane Smith.' },
-  // Add more users as needed
-];
+
 
 interface Patiant {
   name:string;
@@ -68,21 +64,7 @@ const handleOpen = () => {
     setOpen(false)
   }
 
-const user = {
-    name: 'John Doe',
-    fatherName: 'Richard Doe',
-    motherName: 'Jane Doe',
-    surname: 'Doe',
-    dob: '1990-01-01',
-    mahallu: 'Mahallu Name',
-    place: 'New York',
-    district: 'Manhattan',
-    state: 'New York',
-    phone: '123-456-7890',
-    problem: 'Some problem description Some problem descriptionSome problem description Some problem descriptionSome problem descriptionSome problem description',
-    solutions: 'Some solutions description dfgdsfagf egerfgefrgr rtreyt ytertert tertreh rtreyy rtyertyt yeyet',
-    description: 'Detailed description about the user use rifai shad i shakir fasi jsaj .'
-  };
+
 
   return (
 
