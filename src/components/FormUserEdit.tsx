@@ -1,5 +1,7 @@
 import React from 'react'
-import { Dialog, DialogTitle, DialogContent, DialogActions, TextField, Button } from '@mui/material';
+// import { Dialog, DialogTitle, DialogContent, DialogActions, TextField, Button } from '@mui/material';
+import {  Grid,Typography ,Dialog} from '@mui/material';
+import workinprogimg from '../assets/icons/work-in-progress.png'
 
 
 
@@ -13,8 +15,23 @@ const FormUserEdit:React.FC<EditDetailsProps> = ({open,onClose}) => {
  
   return (
     <>
+
+
+<Dialog open={open} onClose={onClose}>
+<Grid container spacing={2} direction="column" alignItems="center" sx={{ mt: 4 }}>
+        <Grid item>
+          <img src={workinprogimg} alt="No Data" width="300" height="289"/>
+        </Grid>
+        <Grid item>
+          <Typography variant="h6" color="textSecondary">
+          Service will be available within 3 days...
+          </Typography>
+        </Grid>
+        
+      </Grid>
+      </Dialog>
       
-      <Dialog open={open} onClose={onClose}>
+      {/* <Dialog open={open} onClose={onClose}>
         <DialogTitle>Add Details</DialogTitle>
         <DialogContent>
           <TextField
@@ -130,7 +147,7 @@ const FormUserEdit:React.FC<EditDetailsProps> = ({open,onClose}) => {
           <Button onClick={onClose}>Cancel</Button>
           <Button onClick={onClose}>Add</Button>
         </DialogActions>
-      </Dialog>
+      </Dialog> */}
 
     </>
   )
