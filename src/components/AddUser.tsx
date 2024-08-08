@@ -132,7 +132,7 @@ console.log(err);
           <TextField
             margin="dense"
             id="date"
-            label="Date"
+            label="Date of birth"
             type="date"
             fullWidth
             InputLabelProps={{

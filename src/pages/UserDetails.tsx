@@ -23,6 +23,8 @@ interface Patiant {
   problem:string;
   solutions:string;
   description:string;
+  updatedAt:string;
+  dayOfWeek:string;
 }
 
 const UserDetails: React.FC = () => {
@@ -65,12 +67,137 @@ const handleOpen = () => {
   }
 
 
+  const formattedDate = patient ? new Date(patient.updatedAt).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  }) : '';
 
   return (
 
     <>
+
+
+<>
+      <Container sx={{ mt: 4 }}>
+        {patient ? (
+          <Paper elevation={3} sx={{ p: 4 }}>
+            {/* Today's Date and Day at the Top Right */}
+            <Grid container justifyContent="space-between" alignItems="center">
+              <Grid item>
+                <Typography variant="h6" sx={{ fontWeight: 'bold' }}>Patient Details</Typography>
+              </Grid>
+              <Grid item>
+                <Typography variant="subtitle1" sx={{ fontWeight: 'bold', color: 'gray' }}>
+                {patient.dayOfWeek}, {formattedDate}
+                </Typography>
+              </Grid>
+            </Grid>
+            <Divider style={{ width: '100%', margin: '20px 0' }} />
+            
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={4}>
+                <Typography variant="body2">Name</Typography>
+                <Typography variant="subtitle1" sx={{ fontWeight: 'bold', color: 'black' }}>{patient.name}</Typography>
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <Typography variant="body2">Father's Name</Typography>
+                <Typography variant="subtitle1" sx={{ fontWeight: 'bold', color: 'black' }}>{patient.fatherName}</Typography>
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <Typography variant="body2">Mother's Name</Typography>
+                <Typography variant="subtitle1" sx={{ fontWeight: 'bold', color: 'black' }}>{patient.motherName}</Typography>
+              </Grid>
+            </Grid>
+            <Divider style={{ width: '100%', margin: '20px 0' }} />
+            
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={4}>
+                <Typography variant="body2">Surname</Typography>
+                <Typography variant="subtitle1" sx={{ fontWeight: 'bold', color: 'black' }}>{patient.surname}</Typography>
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <Typography variant="body2">Mahallu</Typography>
+                <Typography variant="subtitle1" sx={{ fontWeight: 'bold', color: 'black' }}>{patient.mahallu}</Typography>
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <Typography variant="body2">Place</Typography>
+                <Typography variant="subtitle1" sx={{ fontWeight: 'bold', color: 'black' }}>{patient.place}</Typography>
+              </Grid>
+            </Grid>
+            <Divider style={{ width: '100%', margin: '20px 0' }} />
+            
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={4}>
+                <Typography variant="body2">District</Typography>
+                <Typography variant="subtitle1" sx={{ fontWeight: 'bold', color: 'black' }}>{patient.district}</Typography>
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <Typography variant="body2">State</Typography>
+                <Typography variant="subtitle1" sx={{ fontWeight: 'bold', color: 'black' }}>{patient.state}</Typography>
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <Typography variant="body2">Phone</Typography>
+                <Typography variant="subtitle1" sx={{ fontWeight: 'bold', color: 'black' }}>{patient.phone}</Typography>
+              </Grid>
+            </Grid>
+            <Divider style={{ width: '100%', margin: '20px 0' }} />
+            
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <Typography variant="body2">Problem</Typography>
+                <Typography variant="subtitle2" sx={{ fontWeight: 'bold', color: 'black' }}>{patient.problem}</Typography>
+              </Grid>
+              <Divider style={{ width: '100%', margin: '20px 0' }} />
+              <Grid item xs={12}>
+                <Typography variant="body2">Solutions</Typography>
+                <Typography variant="subtitle2" sx={{ fontWeight: 'bold', color: 'black' }}>{patient.solutions}</Typography>
+              </Grid>
+              <Divider style={{ width: '100%', margin: '20px 0' }} />
+              <Grid item xs={12}>
+                <Typography variant="body2">Description</Typography>
+                <Typography variant="subtitle2" sx={{ fontWeight: 'bold', color: 'black' }}>{patient.description}</Typography>
+              </Grid>
+              <Divider style={{ width: '100%', margin: '20px 0' }} />
+              <Grid item xs={12}>
+                <IconButton onClick={handleOpen} sx={{ m: -2 }}>
+                  <Edit />
+                </IconButton>
+              </Grid>
+            </Grid>
+          </Paper>
+        ) : (
+          <Typography variant="h6">Loading...</Typography>
+        )}
+
+        <EditDetails open={open} onClose={handleClose} />
+      </Container>
+    </>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     {/* <Navbar/>  */}
-    <Container sx={{ mt: 4 }}>
+    {/* <Container sx={{ mt: 4 }}>
 
       {patient ?  (
     <Paper elevation={3} sx={{ p: 4 }}>
@@ -165,7 +292,7 @@ const handleOpen = () => {
 
 
 
-  </Container>
+  {/* </Container>  */}
   </>
   );
 };
