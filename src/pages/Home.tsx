@@ -133,7 +133,7 @@ const filteredUsers = patients.filter((user) =>
     ) : (
       <Grid container spacing={2} direction="column" alignItems="center" sx={{ mt: 4 }}>
         <Grid item>
-          <img src={emptyFolderImg} alt="No Data" width="350" height="339"/>
+          <img src={emptyFolderImg} alt="No Data" width="300" height="289"/>
         </Grid>
         <Grid item>
           <Typography variant="h6" color="textSecondary">
